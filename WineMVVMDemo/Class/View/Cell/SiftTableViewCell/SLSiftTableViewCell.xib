@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="72" id="ivL-6n-aDt" customClass="SLSiftTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="72"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ivL-6n-aDt" id="2H6-pe-ZFZ">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="71.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dsn-Sf-3ge">
+                        <rect key="frame" x="33" y="25" width="160" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="ISW-U0-UID"/>
+                            <constraint firstAttribute="width" constant="160" id="lYq-tS-UWP"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.31372549020000001" green="0.31372549020000001" blue="0.31372549020000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="w_duihao" translatesAutoresizingMaskIntoConstraints="NO" id="Z6o-xj-9TA">
+                        <rect key="frame" x="277" y="26" width="20" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="1b0-JC-qOX"/>
+                            <constraint firstAttribute="width" constant="20" id="shB-0X-g0J"/>
+                        </constraints>
+                    </imageView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D4j-6b-ydC">
+                        <rect key="frame" x="33" y="71" width="287" height="0.0"/>
+                        <color key="backgroundColor" red="0.58823529409999997" green="0.58823529409999997" blue="0.58823529409999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="0.5" id="MPD-Cx-WG0"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottomMargin" secondItem="D4j-6b-ydC" secondAttribute="bottom" constant="-8" id="6g9-tM-Qxi"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="D4j-6b-ydC" secondAttribute="trailing" constant="-8" id="P53-sZ-gXP"/>
+                    <constraint firstItem="Z6o-xj-9TA" firstAttribute="centerY" secondItem="2H6-pe-ZFZ" secondAttribute="centerY" id="aud-pe-EqA"/>
+                    <constraint firstItem="Dsn-Sf-3ge" firstAttribute="leading" secondItem="2H6-pe-ZFZ" secondAttribute="leadingMargin" constant="25" id="hz0-0u-JwL"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="Z6o-xj-9TA" secondAttribute="trailing" constant="15" id="ivx-BX-K8c"/>
+                    <constraint firstItem="D4j-6b-ydC" firstAttribute="leading" secondItem="2H6-pe-ZFZ" secondAttribute="leadingMargin" constant="25" id="jiR-9Q-noh"/>
+                    <constraint firstItem="Dsn-Sf-3ge" firstAttribute="centerY" secondItem="2H6-pe-ZFZ" secondAttribute="centerY" id="vzU-p9-Dob"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="w_Label" destination="Dsn-Sf-3ge" id="Uhh-Sl-UzT"/>
+                <outlet property="w_imageView" destination="Z6o-xj-9TA" id="a4n-Is-PlU"/>
+            </connections>
+            <point key="canvasLocation" x="344" y="370"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="w_duihao" width="16" height="16"/>
+    </resources>
+</document>
