@@ -25,7 +25,7 @@
     @weakify(self);
     self.addAddressCommand      = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
         SLAddressViewModel *viewModel = [[SLAddressViewModel alloc]initWithService:self.services params:@{@"title":@"新建地址"}];
-        self.navImpl.className = @"WTKNewAddressVC";
+        self.navImpl.className = @"SLAddressVC";
         [self.navImpl pushViewModel:viewModel animated:YES];
         
         
@@ -35,7 +35,7 @@
     self.editAddress            = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
         SLAddressViewModel *viewModel = [[SLAddressViewModel alloc]initWithService:self.services params:@{@"title":@"新建地址"}];
         viewModel.address = input;
-        self.navImpl.className = @"WTKNewAddressVC";
+        self.navImpl.className = @"SLAddressVC";
         [self.navImpl pushViewModel:viewModel animated:YES];
         return [RACSignal empty];
     }];

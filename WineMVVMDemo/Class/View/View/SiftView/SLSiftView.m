@@ -49,7 +49,7 @@
     self.tableView.dataSource       = self;
     self.tableView.separatorStyle   = UITableViewCellSeparatorStyleNone;
     self.tableView.rowHeight        = 44;
-    [self.tableView registerNib:[UINib nibWithNibName:@"WTKSiftTableViewCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"cell"];
+    [self.tableView registerNib:[UINib nibWithNibName:@"SLSiftTableViewCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"cell"];
     self.tableView.tableHeaderView  = self.headerView;
     self.tableView.tableFooterView  = self.footView;
     

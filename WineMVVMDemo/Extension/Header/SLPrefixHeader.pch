@@ -45,6 +45,7 @@
 #import "SLUser.h"
 #import "SLTool.h"
 #import "SLNetWorkManager.h"
+#import "SLMapManager.h"
 
 //Macro
 #import "Macro.h"

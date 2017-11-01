@@ -2,7 +2,7 @@
 //  SLBaseView.m
 //  WineMVVMDemo
 //
-//  Created by songlin on 29/10/2017.
+//  Created by songlin on 1/11/2017.
 //  Copyright © 2017 songlin. All rights reserved.
 //
 
@@ -12,12 +12,19 @@
 
 -(void)awakeFromNib {
     [super awakeFromNib];
-//    [self configInterface];
+    //    [self configInterface];
+}
+
+-(instancetype)init {
+    if (self = [super init]) {
+        
+    }
+    return self;
 }
 
 -(instancetype)initWithFrame:(CGRect)frame {
     if (self =[super initWithFrame:frame]) {
-//        [self configInterface];
+        //        [self configInterface];
     }
     return self;
 }
@@ -41,4 +48,5 @@
 - (void) dealloc{
     NSLog(@"========>>[%@] %@ 释放成功 <<=========",[self class], self);
 }
+
 @end

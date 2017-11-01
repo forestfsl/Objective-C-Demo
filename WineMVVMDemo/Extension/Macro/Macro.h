@@ -87,6 +87,8 @@ dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(time * NSEC_PER_SEC)),
 // 系统版本字符串类型
 #define kSystemVersion [[UIDevice currentDevice] systemVersion]
 
+//ShopManager
+#define SHOPPING_MANAGER [SLShoppingManager manager]
 
 //URL Macro
 //首页轮播图
