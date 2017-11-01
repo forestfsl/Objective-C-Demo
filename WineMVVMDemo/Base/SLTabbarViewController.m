@@ -22,6 +22,30 @@
     // Do any additional setup after loading the view.
     
     [self addChildVC];
+    [self observerBadgeValue];
+}
+
+///监听badgeValue
+- (void)observerBadgeValue
+{
+    @weakify(self);
+    [RACObserve([SLUser currentUser], bageValue) subscribeNext:^(id x) {
+        @strongify(self);
+        UIViewController *vc = self.viewControllers[3];
+        NSInteger num = [x integerValue];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (num > 0)
+            {
+                [vc.tabBarItem setBadgeValue:[NSString stringWithFormat:@"%ld",num]];
+            }
+            else
+            {
+                [vc.tabBarItem setBadgeValue:nil];
+            }
+        });
+        
+    }];
 }
 
 - (void)addChildVC {

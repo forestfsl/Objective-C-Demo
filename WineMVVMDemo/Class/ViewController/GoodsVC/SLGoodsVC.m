@@ -10,8 +10,9 @@
 #import "SLGoodsViewModel.h"
 #import "SLCommentTableView.h"
 #import <WebKit/WebKit.h>
+#import "SLCommentBtn.h"
 
-@interface SLGoodsVC ()<UIScrollViewDelegate>
+@interface SLGoodsVC ()<UIScrollViewDelegate,WKUIDelegate>
 @property(nonatomic,strong,readwrite)SLGoodsViewModel  *viewModel;
 
 @property(nonatomic,strong)WKWebView                    *webView;
@@ -160,7 +161,7 @@
     NSArray *titleNum = @[titleDic[@"whole"],titleDic[@"good"],titleDic[@"middle"],titleDic[@"bad"],titleDic[@"picture"]];
     NSArray *title = @[@"全部评价",@"好评",@"中评",@"差评",@"晒图"];
     [self.headBtnArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        WTKCommentBtn *btn = obj;
+        SLCommentBtn *btn = obj;
         [btn setTitle:title[idx] subTitle:titleNum[idx]];
     }];
     
@@ -174,10 +175,10 @@
         return;
     }
     [self.viewModel.menuCommand execute:@(btn.tag)];
-    WTKCommentBtn *lastBtn = self.headBtnArray[self.lastSelect];
-    lastBtn.w_titleColor = WTKCOLOR(80, 80, 80, 1);
-    WTKCommentBtn *newBtn = (WTKCommentBtn *)btn;
-    newBtn.w_titleColor = THEME_COLOR;
+    SLCommentBtn *lastBtn = self.headBtnArray[self.lastSelect];
+    lastBtn.titleColor = SLCOLOR(80, 80, 80, 1);
+    SLCommentBtn *newBtn = (SLCommentBtn *)btn;
+    newBtn.titleColor = THEME_COLOR;
     self.lastSelect = btn.tag;
 }
 
@@ -209,19 +210,19 @@
     {
         _shoppingCarBtn                     = [UIButton buttonWithType:UIButtonTypeCustom];
         _shoppingCarBtn.frame               = CGRectMake(0, kHeight - 50 - 64, kWidth * 3 / 5, 50);
-        _shoppingCarBtn.backgroundColor     = WTKCOLOR(30, 30, 30, 0.8);
+        _shoppingCarBtn.backgroundColor     = SLCOLOR(30, 30, 30, 0.8);
         
         UIImageView *imgView                = [[UIImageView alloc]initWithFrame:CGRectMake(_shoppingCarBtn.frame.size.width / 2.0 - 25, 0, 50, 50)];
         imgView.image                       = [UIImage imageNamed:@"gouwuche"];
         [self.shoppingCarBtn addSubview:imgView];
         self.bageLabel                      = [UIButton buttonWithType:UIButtonTypeCustom];
         self.bageLabel.frame                = CGRectMake(_shoppingCarBtn.frame.size.width / 2.0 + 10, 2, 25, 25);
-        self.bageLabel.titleLabel.font      = [UIFont wtkNormalFont:14];
+        self.bageLabel.titleLabel.font      = [UIFont sl_NormalFont:14];
         [self.bageLabel setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        [self.bageLabel setTitle:[NSString stringWithFormat:@"%ld",[WTKUser currentUser].bageValue] forState:UIControlStateNormal];
+        [self.bageLabel setTitle:[NSString stringWithFormat:@"%ld",[SLUser currentUser].bageValue] forState:UIControlStateNormal];
         [self.bageLabel setBackgroundImage:[UIImage imageNamed:@"main_badge"] forState:UIControlStateNormal];
         self.bageLabel.titleLabel.textAlignment        = NSTextAlignmentCenter;
-        if ([WTKUser currentUser].bageValue == 0)
+        if ([SLUser currentUser].bageValue == 0)
         {
             self.bageLabel.hidden           = YES;
         }
@@ -236,7 +237,7 @@
     if (!_webView)
     {
         _webView = [[WKWebView alloc]initWithFrame:CGRectMake(0, 0, kWidth, kHeight - 50 )];
-        _webView.navigationDelegate     = self;
+       
         _webView.UIDelegate             = self;
     }
     return _webView;
@@ -257,8 +258,8 @@
     {
         _titleView        = [[UISegmentedControl alloc]initWithItems:@[@"详情",@"评价"]];
         _titleView.frame  = CGRectMake(0, 0, 100, 30);
-        NSDictionary *selectDic = @{NSForegroundColorAttributeName :WTKCOLOR(70, 70, 70, 1),NSFontAttributeName:[UIFont wtkNormalFont:14]};
-        NSDictionary *normalDic = @{NSForegroundColorAttributeName :WTKCOLOR(140, 140, 140, 1),NSFontAttributeName:[UIFont wtkNormalFont:14]};
+        NSDictionary *selectDic = @{NSForegroundColorAttributeName :SLCOLOR(70, 70, 70, 1),NSFontAttributeName:[UIFont sl_NormalFont:14]};
+        NSDictionary *normalDic = @{NSForegroundColorAttributeName :SLCOLOR(140, 140, 140, 1),NSFontAttributeName:[UIFont sl_NormalFont:14]};
         [_titleView setTitleTextAttributes:selectDic forState:UIControlStateSelected];
         [_titleView setTitleTextAttributes:normalDic forState:UIControlStateNormal];
         _titleView.selectedSegmentIndex = 0;
@@ -285,10 +286,10 @@
         CGFloat width = kWidth  / 5.0;
         for (int i = 0; i < 5; i++)
         {
-            WTKCommentBtn *btn  = [SLCommentBtn buttonWithTitle:title[i] subTitle:@"0"];
+            SLCommentBtn *btn  = [SLCommentBtn buttonWithTitle:title[i] subTitle:@"0"];
             btn.frame           = CGRectMake(width * i, 0, width, 50);
             btn.tag             = i;
-            btn.w_titleColor    = i == 0 ? THEME_COLOR : WTKCOLOR(80, 80, 80, 1);
+            btn.titleColor    = i == 0 ? THEME_COLOR : SLCOLOR(80, 80, 80, 1);
             [btn addTarget:self action:@selector(headBtnClick:) forControlEvents:UIControlEventTouchUpInside];
             [_headView addSubview:btn];
             [self.headBtnArray addObject:btn];

@@ -32,6 +32,15 @@
     return user;
 }
 
+- (void)setBageValue:(NSInteger)bageValue
+{
+    _bageValue = bageValue;
+    if (bageValue <= 0)
+    {
+        _bageValue = 0;
+    }
+}
+
 - (BOOL)isLogin
 {
     if ([[NSUserDefaults standardUserDefaults] valueForKey:userTag])

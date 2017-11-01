@@ -21,6 +21,16 @@
     }]delay:time];
 }
 
++ (RACSignal *)postDicDataWithURL:(NSString *)urlString parameter:(NSDictionary *)parameter {
+    CGFloat time = arc4random()%15 / 10.0;
+    NSDictionary *dic = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:urlString ofType:nil]];
+    return [[RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+        [subscriber sendNext:dic];
+        [subscriber sendCompleted];
+        return nil;
+    }] delay:time];
+}
+
 
 + (RACSignal *)getWithURL:(NSString *)urlString parameter:(NSDictionary *)parameter {
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];

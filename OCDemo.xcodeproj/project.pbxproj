@@ -171,6 +171,8 @@
 		079B9F571FA7690000BA9CAA /* SLRecommendVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 079B9F561FA7690000BA9CAA /* SLRecommendVC.m */; };
 		07BD62381FA4805100DB1AD2 /* UIColor+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 07BD62371FA4805100DB1AD2 /* UIColor+Extension.m */; };
 		07BD623B1FA4879E00DB1AD2 /* SLNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07BD623A1FA4879E00DB1AD2 /* SLNavigationViewController.m */; };
+		07DDDE0F1FA964FD00F7AFBC /* SLCommentBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = 07DDDE0E1FA964FD00F7AFBC /* SLCommentBtn.m */; };
+		07DDDE111FA96BDB00F7AFBC /* gouwuche@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 07DDDE101FA96BDB00F7AFBC /* gouwuche@2x.png */; };
 		6A7E569B336A2B57DE073FCD /* Pods_WineMVVMDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F71C581A5D322AC43A8AB728 /* Pods_WineMVVMDemo.framework */; };
 /* End PBXBuildFile section */
 
@@ -472,6 +474,9 @@
 		07BD62371FA4805100DB1AD2 /* UIColor+Extension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Extension.m"; sourceTree = "<group>"; };
 		07BD62391FA4879E00DB1AD2 /* SLNavigationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLNavigationViewController.h; sourceTree = "<group>"; };
 		07BD623A1FA4879E00DB1AD2 /* SLNavigationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SLNavigationViewController.m; sourceTree = "<group>"; };
+		07DDDE0D1FA964FD00F7AFBC /* SLCommentBtn.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLCommentBtn.h; sourceTree = "<group>"; };
+		07DDDE0E1FA964FD00F7AFBC /* SLCommentBtn.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SLCommentBtn.m; sourceTree = "<group>"; };
+		07DDDE101FA96BDB00F7AFBC /* gouwuche@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gouwuche@2x.png"; sourceTree = "<group>"; };
 		2E7EDC5B8AFED07B61B7D573 /* Pods-WineMVVMDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WineMVVMDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-WineMVVMDemo/Pods-WineMVVMDemo.release.xcconfig"; sourceTree = "<group>"; };
 		D26DE570E4D86112F101E04C /* Pods-WineMVVMDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WineMVVMDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WineMVVMDemo/Pods-WineMVVMDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		F71C581A5D322AC43A8AB728 /* Pods_WineMVVMDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WineMVVMDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1124,6 +1129,7 @@
 		0776106D1FA806E0000746CB /* Order */ = {
 			isa = PBXGroup;
 			children = (
+				07DDDE101FA96BDB00F7AFBC /* gouwuche@2x.png */,
 				077611011FA86F6C000746CB /* w_defaultHeader.png */,
 				077610F41FA85C65000746CB /* w_star_red.png */,
 				077610F51FA85C65000746CB /* w_star_red@2x.png */,
@@ -1522,6 +1528,7 @@
 		079B9F2D1FA583AD00BA9CAA /* View */ = {
 			isa = PBXGroup;
 			children = (
+				07DDDE0C1FA964C700F7AFBC /* CommentButton */,
 				077610FD1FA85D35000746CB /* StarView */,
 				077610E51FA85A05000746CB /* CommentTableView */,
 				077610B81FA842E9000746CB /* AboutMeView */,
@@ -1588,6 +1595,15 @@
 				079B9F561FA7690000BA9CAA /* SLRecommendVC.m */,
 			);
 			path = RecommendVC;
+			sourceTree = "<group>";
+		};
+		07DDDE0C1FA964C700F7AFBC /* CommentButton */ = {
+			isa = PBXGroup;
+			children = (
+				07DDDE0D1FA964FD00F7AFBC /* SLCommentBtn.h */,
+				07DDDE0E1FA964FD00F7AFBC /* SLCommentBtn.m */,
+			);
+			path = CommentButton;
 			sourceTree = "<group>";
 		};
 		9841C35DE1D1C5D8C4D9EBFF /* Pods */ = {
@@ -1837,6 +1853,7 @@
 				07657A7D1FA42A9D00825A21 /* cart_icon_select@3x.png in Resources */,
 				07657A7A1FA42A9D00825A21 /* cart_icon_normal@2x.png in Resources */,
 				07645D481FA6B907001859E9 /* BadComment in Resources */,
+				07DDDE111FA96BDB00F7AFBC /* gouwuche@2x.png in Resources */,
 				0776108B1FA81DDA000746CB /* SLSiftTableViewCell.xib in Resources */,
 				0776106C1FA80630000746CB /* SLOrderTableViewCell.xib in Resources */,
 				07645D4D1FA6B907001859E9 /* FinishOrder in Resources */,
@@ -2060,6 +2077,7 @@
 				07645D331FA6B731001859E9 /* SLUser.m in Sources */,
 				079B9F051FA4BB9000BA9CAA /* SLCategoryVC.m in Sources */,
 				079B9F431FA5B0A500BA9CAA /* SLHomeBannerCollectionViewCell.m in Sources */,
+				07DDDE0F1FA964FD00F7AFBC /* SLCommentBtn.m in Sources */,
 				0776107D1FA81BAF000746CB /* SLCategoryViewModel.m in Sources */,
 				07645DAD1FA718C2001859E9 /* MSSAutoresizeLabelFlowCell.m in Sources */,
 				07645D8D1FA6FBB1001859E9 /* UILabel+Extension.m in Sources */,
