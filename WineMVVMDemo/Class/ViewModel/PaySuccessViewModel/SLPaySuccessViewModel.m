@@ -26,7 +26,7 @@
     self.orderCommand       = [[RACCommand alloc]initWithSignalBlock:^RACSignal *(id input) {
         SLOrderViewModel *viewModel = [[SLOrderViewModel alloc]initWithService:self.services params:@{@"title":@"全部订单"}];
         viewModel.orderType = 0;
-        self.navImpl.className = @"WTKOrderVC";
+        self.navImpl.className = @"SLOrderVC";
         [self.navImpl pushViewModel:viewModel animated:YES];
         return [RACSignal empty];
     }];

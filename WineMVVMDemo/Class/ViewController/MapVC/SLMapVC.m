@@ -71,12 +71,7 @@
     [self bindViewModel];
     [self initView];
     [self resetNavi];
-    if (CURRENT_USER.currentAddress)
-    {
-        double lng = [CURRENT_USER.currentAddress[@"lng"] doubleValue];
-        double lat = [CURRENT_USER.currentAddress[@"lat"] doubleValue];
-        [self startPoi:lng lat:lat];
-    }
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -93,7 +88,6 @@
 - (void)resetNavi
 {
     self.searchBar.barStyle         = UISearchBarStyleDefault;
-    //    self.searchBar.tintColor        = WTKCOLOR(70, 70, 70, 1);
     self.searchBar.delegate         = self;
     self.searchBar.placeholder      = @"请输入地址";
     _searchBar.layer.cornerRadius   = 5;

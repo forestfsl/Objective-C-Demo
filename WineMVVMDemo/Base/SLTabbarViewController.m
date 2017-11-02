@@ -13,6 +13,7 @@
 
 @interface SLTabbarViewController ()
 
+@property(nonatomic,strong)UIImageView *launchImage;
 @end
 
 @implementation SLTabbarViewController
@@ -20,11 +21,83 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
+    [self setLaunch];
     [self addChildVC];
     [self observerBadgeValue];
+    //监听读取用户数据
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(readDataFinish) name:READ_USER_DATA_FINISH object:nil];
 }
 
+- (void)setLaunch
+{
+#warning 以后修改launchImage  名字
+    self.launchImage        = [[UIImageView alloc]initWithFrame:self.view.frame];
+    self.launchImage.image  = [UIImage imageNamed:@"top_launch"];
+    self.launchImage.tag    = 111;
+    [self.view addSubview:self.launchImage];
+    @weakify(self);
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        @strongify(self);
+        [self endLaunch];
+    });
+    UIButton *btn           = [UIButton buttonWithType:UIButtonTypeCustom];
+    btn.frame               = CGRectMake(kWidth - 80, 30, 60, 25);
+    btn.backgroundColor     = SLCOLOR(30, 30, 30, 0.7);
+    btn.titleLabel.font     = [UIFont sl_NormalFont:14];
+    btn.layer.cornerRadius  = 8;
+    btn.layer.masksToBounds = YES;
+    btn.tag                 = 222;
+    [btn setTitle:@"跳过" forState:UIControlStateNormal];
+    [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [btn addTarget:self action:@selector(endLaunch) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:btn];
+    
+    self.view.backgroundColor = THEME_COLOR;
+}
+
+- (void)endLaunch
+{
+    if (![self.view viewWithTag:111])
+    {
+        return;
+    }
+    UIView *btn = [self.view viewWithTag:222];
+    if (btn)
+    {
+        [btn removeFromSuperview];
+    }
+    @weakify(self);
+    [UIView animateWithDuration:1.3 animations:^{
+        @strongify(self);
+        self.launchImage.transform  = CGAffineTransformMakeScale(1.3, 1.3);
+        self.launchImage.alpha      = 0;
+    } completion:^(BOOL finished) {
+        [self.launchImage removeFromSuperview];
+    }];
+}
+//读取本地数据
+- (void)readDataFinish
+{
+    if (![SLUser currentUser].isTouchID)
+    {
+        [SLTool registTouchIDWithCompleteBlock:^(NSString *tip) {
+            dispatch_sync(dispatch_get_main_queue(), ^{
+                if ([tip isEqualToString:@"不支持指纹验证"])
+                {
+                    return ;
+                }
+                UIAlertAction *action = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+                UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:tip preferredStyle:UIAlertControllerStyleAlert];
+                [alert addAction:action];
+                [self presentViewController:alert animated:YES completion:nil];
+            });
+        }];
+    }
+
+    
+    
+    
+}
 ///监听badgeValue
 - (void)observerBadgeValue
 {
@@ -95,7 +168,11 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+ 
+}
 
 
 @end

@@ -30,6 +30,8 @@
     return self;
 }
 
+
+
 - (void)configView
 {
     self.delegate           = self;

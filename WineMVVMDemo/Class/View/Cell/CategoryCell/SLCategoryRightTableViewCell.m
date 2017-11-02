@@ -42,11 +42,19 @@
     if (self)
     {
         [self configInterface];
+        [self bind];
       
     }
     return self;
 }
-
+- (void)bind
+{
+    @weakify(self);
+    [self.managerView.addSubject subscribeNext:^(id x) {
+        @strongify(self);
+        [SLTool beginAddAnimationWithImageView:self.sl_imageView animationTime:0.55 startPoint:CGPointZero endPoint:CGPointZero];
+    }];
+}
 - (void)configSelf
 {
     @weakify(self);

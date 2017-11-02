@@ -1,7 +1,7 @@
 //
 //  SLMapManager.m
 //  WineMVVMDemo
-//
+//里面的一些代理方法要是想执行成功的话，那么demo中的dispaly name要改为好酒，Bundle Identifier要改为com.wang.WTKWineMVVM就可以了，因为这里是模仿别人demo的时候用到别人的key，自己没有去申请，是为了偷懒
 //  Created by songlin on 1/11/2017.
 //  Copyright © 2017 songlin. All rights reserved.
 //

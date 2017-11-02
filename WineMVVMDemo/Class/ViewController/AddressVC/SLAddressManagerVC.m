@@ -47,7 +47,7 @@
     self.tableView.backgroundColor  = [UIColor clearColor];
     self.tableView.separatorStyle   = UITableViewCellSeparatorStyleNone;
     self.tableView.rowHeight        = 135;
-    [self.tableView registerNib:[UINib nibWithNibName:@"WTKAddressTableViewCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"cell"];
+    [self.tableView registerNib:[UINib nibWithNibName:@"SLAddressTableViewCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"cell"];
     
     UIView *bottomView              = [[UIView alloc]initWithFrame:CGRectMake(0, kHeight - 60, kWidth, 60)];
     bottomView.backgroundColor      = [UIColor whiteColor];

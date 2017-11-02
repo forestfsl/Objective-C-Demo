@@ -209,27 +209,27 @@
 
 - (void)setupSaveBtn {
     
-    _saveBtn.backgroundColor            = [UIColor whiteColor];
-    _saveBtn.layer.cornerRadius         = 5;
-    _saveBtn.layer.masksToBounds        = YES;
-    _saveBtn.layer.borderColor          = THEME_COLOR.CGColor;
-    _saveBtn.layer.borderWidth          = 0.4;
-    _saveBtn.titleLabel.font            = [UIFont sl_NormalFont:20];
-    [_saveBtn setTitle:@"保存地址" forState:UIControlStateNormal];
-    [_saveBtn setTitleColor:THEME_COLOR forState:UIControlStateNormal];
+    self.saveBtn.backgroundColor            = [UIColor whiteColor];
+    self.saveBtn.layer.cornerRadius         = 5;
+    self.saveBtn.layer.masksToBounds        = YES;
+    self.saveBtn.layer.borderColor          = THEME_COLOR.CGColor;
+    self.saveBtn.layer.borderWidth          = 0.4;
+    self.saveBtn.titleLabel.font            = [UIFont sl_NormalFont:20];
+    [self.saveBtn setTitle:@"保存地址" forState:UIControlStateNormal];
+    [self.saveBtn setTitleColor:THEME_COLOR forState:UIControlStateNormal];
     [self.scrollView addSubview:self.saveBtn];
 }
 
 - (void)setupDeleteBtn {
    
-    _deleteBtn.backgroundColor            = SLCOLOR(210, 210, 210, 1);
-    _deleteBtn.layer.cornerRadius         = 5;
-    _deleteBtn.layer.masksToBounds        = YES;
-    _deleteBtn.layer.borderColor          = THEME_COLOR.CGColor;
-    _deleteBtn.layer.borderWidth          = 0.4;
-    _deleteBtn.titleLabel.font            = [UIFont sl_NormalFont:20];
-    [_deleteBtn setTitle:@"删除地址" forState:UIControlStateNormal];
-    [_deleteBtn setTitleColor:THEME_COLOR forState:UIControlStateNormal];
+    self.deleteBtn.backgroundColor            = SLCOLOR(210, 210, 210, 1);
+    self.deleteBtn.layer.cornerRadius         = 5;
+    self.deleteBtn.layer.masksToBounds        = YES;
+    self.deleteBtn.layer.borderColor          = THEME_COLOR.CGColor;
+    self.deleteBtn.layer.borderWidth          = 0.4;
+    self.deleteBtn.titleLabel.font            = [UIFont sl_NormalFont:20];
+    [self.deleteBtn setTitle:@"删除地址" forState:UIControlStateNormal];
+    [self.deleteBtn setTitleColor:THEME_COLOR forState:UIControlStateNormal];
      [self.scrollView addSubview:self.deleteBtn];
 }
 -(void)configSubView {

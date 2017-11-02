@@ -66,20 +66,20 @@
             NSLog(@"保存地址");
             if (self.address)
             {
-                [self.address setValuesForKeysWithDictionary:@{@"w_name":name,
-                                                               @"w_address":addre,
-                                                               @"w_phone":phone,
-                                                               @"w_sex":sex,
-                                                               @"w_detailAddress":detail}];
+                [self.address setValuesForKeysWithDictionary:@{@"name":name,
+                                                               @"address":addre,
+                                                               @"phone":phone,
+                                                               @"sex":sex,
+                                                               @"detailAddress":detail}];
             }
             else
             {
                 SLAddress *address = [[SLAddress alloc]init];
-                [address setValuesForKeysWithDictionary:@{@"w_name":name,
-                                                          @"w_address":addre,
-                                                          @"w_phone":phone,
-                                                          @"w_sex":sex,
-                                                          @"w_detailAddress":detail}];
+                [address setValuesForKeysWithDictionary:@{@"name":name,
+                                                          @"address":addre,
+                                                          @"phone":phone,
+                                                          @"sex":sex,
+                                                          @"detailAddress":detail}];
                 [CURRENT_USER.address addObject:address];
             }
             [self.navImpl popViewControllerWithAnimation:YES];

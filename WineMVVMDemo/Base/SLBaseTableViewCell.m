@@ -36,6 +36,7 @@
 - (void)configSubView{}
 - (void)configConstraint{}
 - (void)configCellData:(id)obj{}
+- (void)configCellTitle:(NSString *)title subTitle:(NSString *)subTitle {}
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];

@@ -53,7 +53,7 @@
             {
                 //                功能
                 SLFunctionViewModel *viewModel = [[SLFunctionViewModel alloc]initWithService:self.services params:@{@"title":@"功能"}];
-                self.navImpl.className         = @"WTKFunctionVC";
+                self.navImpl.className         = @"SLFunctionVC";
                 [self.navImpl pushViewModel:viewModel animated:YES];
             }
                 break;
@@ -74,7 +74,7 @@
             {
                 //                密码管理
                 SLPsdManagerViewModel *viewModel = [[SLPsdManagerViewModel alloc]initWithService:self.services params:@{@"title":@"密码修改"}];
-                self.navImpl.className         = @"WTKPsdManagerVC";
+                self.navImpl.className         = @"SLPsdManagerVC";
                 [self.navImpl pushViewModel:viewModel animated:YES];
             }
                 break;

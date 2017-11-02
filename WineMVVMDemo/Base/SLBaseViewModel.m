@@ -36,7 +36,7 @@
     if (goLogin)
     {
         SLLoginViewModel *viewModel    = [[SLLoginViewModel alloc]initWithService:self.services params:@{@"title":@"登录"}];
-        self.navImpl.className         = @"WTKLoginVC";
+        self.navImpl.className         = @"SLLoginVC";
         [self.navImpl pushViewModel:viewModel animated:YES];
     }
     

@@ -66,6 +66,8 @@ dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(time * NSEC_PER_SEC)),
 [SVProgressHUD dismiss]; \
 });
 
+///读取用户数据完成
+#define READ_USER_DATA_FINISH @"readUserDataFinish"
 
 //NSUserDefaults
 #define USER_DEFAULTS [NSUserDefaults standardUserDefaults]

@@ -40,7 +40,7 @@
                         SLPaySuccessViewModel *viewModel = [[SLPaySuccessViewModel alloc]initWithService:self.services params:@{@"title":@"付款成功"}];
                         SLOrderModel *model = [[SLOrderModel alloc]initWithDic:@{@"ordertype":@(payType),@"paycost":[NSString stringWithFormat:@"%.2f",self.price]}];
                         viewModel.orderModel = model;
-                        self.navImpl.className = @"WTKPaySuccessVC";
+                        self.navImpl.className = @"SLPaySuccessVC";
                         [self.navImpl pushViewModel:viewModel animated:YES];
                         
                     });
@@ -59,7 +59,7 @@
         NSLog(@"good");
         SLGoodsViewModel *viewModel = [[SLGoodsViewModel alloc]initWithService:self.services params:@{@"title":@"GoodsMessage"}];
         viewModel.goods = self.goodsArray[[input integerValue]];
-        self.navImpl.className = @"WTKGoodsVC";
+        self.navImpl.className = @"SLGoodsVC";
         [self.navImpl pushViewModel:viewModel animated:YES];
         return [RACSignal empty];
     }];

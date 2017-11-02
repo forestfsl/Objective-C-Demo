@@ -25,8 +25,21 @@
     self.window.rootViewController = rootTab;
     
     //读取缓存数据
-    [SLDataManager readUserData];
+//    [SLDataManager readUserData];
+    
+    [self setupMapManager];
     return YES;
+}
+
+//初始化MapManager
+- (void)setupMapManager {
+    BMKMapManager *mapManager           = [[BMKMapManager alloc]init];
+    if ([mapManager start:@"MoboTBCXuQbImL0wfRSCtyHAjk9j6prp" generalDelegate:nil])
+    {
+        NSLog(@"百度地图startSuccess");
+        //        开始定位
+        [[SLMapManager manager] startUserLocation];
+    }
 }
 
 

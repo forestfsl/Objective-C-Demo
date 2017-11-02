@@ -13,8 +13,10 @@
 
 //配置借口数据
 - (void)configInterface;
-//配置cellData
+//配置cellData,通过模型
 - (void)configCellData:(id)obj;
+- (void)configCellTitle:(NSString *)title subTitle:(NSString *)subTitle;
+
 //配置Cell自身属性
 - (void)configSelf;
 //配置Cell的subView

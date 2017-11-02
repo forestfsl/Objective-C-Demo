@@ -150,7 +150,7 @@
         {
             NSLog(@"address");
             SLAddressManagerViewModel *viewModel = [[SLAddressManagerViewModel alloc]initWithService:self.services params:@{@"title":@"地址管理"}];
-            self.navImpl.className = @"WTKAddressManagerVC";
+            self.navImpl.className = @"SLAddressManagerVC";
             [self.navImpl pushViewModel:viewModel animated:YES];
         }
         return [RACSignal empty];

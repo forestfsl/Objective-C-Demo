@@ -40,10 +40,27 @@
 -(instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
         [self configInterface];
+        [self bind];
     }
     return self;
 }
 
+- (void)bind
+{
+    
+    @weakify(self);
+    [RACObserve(self.managerView, num) subscribeNext:^(id x) {
+        //        NSLog(@"%@",x);
+    }];
+    
+    [self.managerView.addSubject subscribeNext:^(id x) {
+        @strongify(self);
+        if(!self.isSearch)
+        {
+            [SLTool beginAddAnimationWithImageView:self.imageV animationTime:0.55 startPoint:CGPointZero endPoint:CGPointZero];
+        }
+    }];
+}
 - (void)configSelf {
     self.backgroundColor = [UIColor redColor];
 }

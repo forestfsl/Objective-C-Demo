@@ -42,9 +42,17 @@
         [self.viewModel.refreshCommand execute:self.tableView];
     }];
     RAC(self.menuView,clickSignal) = RACObserve(self.viewModel, menuClickSignal);
+     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cancelPop) name:@"wtk_cancelPop" object:nil];
 }
-
+- (void)cancelPop
+{
+    [self resetNavi];
+}
 - (void)configSelf {
+    [self resetNavi];
+
+}
+- (void)resetNavi {
     self.navigationController.navigationBar.barStyle = UIBarStyleDefault;
     self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName:SLCOLOR(70, 70, 70, 1)};
     UIButton *leftBtn = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -55,9 +63,7 @@
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:leftBtn];
     self.navigationItem.rightBarButtonItem  = [[UIBarButtonItem alloc]initWithCustomView:self.rightBtn];
     [self.rightBtn addTarget:self action:@selector(right) forControlEvents:UIControlEventTouchUpInside];
-
 }
-
 - (void)right{
     if([self.view viewWithTag:MENU_TAG])
     {
@@ -119,7 +125,11 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    NSLog(@"释放了");
+}
 /*
 #pragma mark - Navigation
 

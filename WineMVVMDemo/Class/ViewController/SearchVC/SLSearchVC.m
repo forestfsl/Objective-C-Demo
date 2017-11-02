@@ -103,7 +103,6 @@
 
 - (void)resetNavi {
     self.searchBar.barStyle         = UISearchBarStyleDefault;
-    //    self.searchBar.tintColor        = WTKCOLOR(70, 70, 70, 1);
     self.searchBar.delegate         = self;
     self.searchBar.placeholder      = @"搜索";
     _searchBar.layer.cornerRadius   = 5;

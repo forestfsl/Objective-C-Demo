@@ -102,6 +102,7 @@
                     viewModel.orderType = 0;
                     self.navImpl.className = @"SLOrderVC";
                     [self.navImpl pushViewModel:viewModel animated:YES];
+                    
                 }
                     break;
                 default:

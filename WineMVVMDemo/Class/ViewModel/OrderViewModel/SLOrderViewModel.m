@@ -76,7 +76,7 @@
         SLOrderModel *order    = input;
         SLOrderDetailViewModel *viewModel = [[SLOrderDetailViewModel alloc]initWithService:self.services params:@{@"title":@"订单详情"}];
         viewModel.order         = order;
-        self.navImpl.className = @"WTKOrderDetailVC";
+        self.navImpl.className = @"SLOrderDetailVC";
         [self.navImpl pushViewModel:viewModel animated:YES];
         
         return [RACSignal empty];

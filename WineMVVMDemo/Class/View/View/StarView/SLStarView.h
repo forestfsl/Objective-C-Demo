@@ -32,7 +32,7 @@ typedef NS_ENUM(NSInteger,SLStarType){
 /**
  *  构建方法
  *  @param starSize 星星大小（默认为平分，间距是大小的一半）,默认填CGSizeZero
- *  @param style    类型（WTKStarTypeInteger-不允许半颗星）SLStarTypeInteger下，star最低为1颗星
+ *  @param style    类型（SLStarTypeInteger-不允许半颗星）SLStarTypeInteger下，star最低为1颗星
  */
 - (instancetype)initWithFrame:(CGRect)frame
                      starSize:(CGSize)starSize
